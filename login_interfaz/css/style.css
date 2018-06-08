@@ -18,13 +18,17 @@ h1 { color: #000; }
 h3 { color: #4a89dc; }
 
 form {
-	width: 380px;
+	width: 340px;
+	height:350px;
 	margin: 4em auto;
 	padding: 3em 2em 2em 2em;
-	background: #fafafa;
+	background:#333;
 	border-radius: 10px;
-	border: 1px solid #ebebeb;
+	border: 1px solid #333;
 	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+	opacity:0.6;
+	-webkit-box-shadow: 0px 0px 30px #ffffff;
+
 }
 
 .group { 
@@ -37,12 +41,12 @@ input {
 	padding: 10px 10px 10px 5px;
 	-webkit-appearance: none;
 	display: block;
-	background: #fafafa;
-	color: #636363;
+	background: #333;
+	color: ;
 	width: 100%;
 	border: none;
 	border-radius: 0;
-	border-bottom: 1px solid #757575;
+	border-bottom: 1px solid #fff;
 }
 
 input:focus { outline: none; }
@@ -51,14 +55,14 @@ input:focus { outline: none; }
 /* Label */
 
 label {
-	color: #999; 
+	color: #fff; 
 	font-size: 18px;
 	font-weight: normal;
 	position: absolute;
 	pointer-events: none;
 	left: 5px;
 	top: 10px;
-	transition: all 0.2s ease;
+	transition: all 0.5s ease;
 }
 
 
@@ -69,7 +73,7 @@ input:focus ~ label, input.used ~ label {
   -webkit-transform: scale(.75);
           transform: scale(.75); left: -2px;
 	/* font-size: 14px; */
-	color: #4a89dc;
+	color: #000;
 }
 
 
@@ -144,7 +148,7 @@ input:focus ~ .highlight {
   margin: .3em 0 1em 0;
   width: 100%;
   vertical-align: middle;
-  color: #fff;
+  color: #000;
   font-size: 16px;
   line-height: 20px;
   -webkit-font-smoothing: antialiased;
@@ -152,7 +156,7 @@ input:focus ~ .highlight {
   letter-spacing: 1px;
   background: transparent;
   border: 0;
-  border-bottom: 2px solid #3160B6;
+  border-bottom: 2px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -162,7 +166,7 @@ input:focus ~ .highlight {
 /* Button modifiers */
 
 .buttonBlue {
-  background: #4a89dc;
+  background: #fff;
   text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
 }
 
@@ -264,4 +268,45 @@ body{
 	height: 100px;
 	width: 200px;
 	background-color: blacks;
+	position: relative;
+	left:-530px;
+	bottom:-50px;
+	-webkit-box-shadow: 0px 0px 30px #ffffff;
+}
+#titulo{
+	height:500px;
+	width:800px;
+	position: absolute;
+	top:10%;
+	left:-50px;
+}
+.posi{
+	position:absolute;
+	left:60%;
+	top:80px;
+}
+#pie{
+	height:90px;
+	width:1446px;
+	background-color: #000;
+	position: absolute;
+	left:-900px;
+	bottom:-104px;
+	opacity:0.5;
+}
+#per{
+	position:absolute;
+	left:90%;
+	width:25px;
+	height:30px;
+	top:7px;
+	opacity: 0.7;
+}
+#candado{
+	position:absolute;
+	left:90%;
+	width:25px;
+	height:30px;
+	top:7px;
+	opacity: 0.7;
 }
