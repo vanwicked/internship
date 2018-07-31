@@ -1,0 +1,3 @@
+http://localhost:8890/secure/RapidBoard.jspa?projectKey=IN&rapidView=1&view=planning.nodetail
+
+	PAGINA DE JIRA
