@@ -53,7 +53,7 @@ include("include/menu.php");
 			<img src="images/5.jpg" alt="#" style="min-height:250px; min-width:100%"/>
 			<div class="carousel-caption">
 				  <h4 style="color:#FF0000";>REQUISITO PARA LA TOMA DE PASANTIA</h4>
-				  <p >1.- El estudiante debe estar inscrito en la pasantia I, II, III en la gestion actual</p>
+				  <p>1.- El estudiante debe estar inscrito en la pasantia I, II, III en la gestion actual</p>
 				  <p>2.- Buscar o asignar una empresa del rubro que este legalmente establecida(tenga NIT, salvo casos
 				         ecepcionales)</p>
 				  <p>3.- Una vez que el estudiante tenga datos de la empresa:(nombre, rubro, 

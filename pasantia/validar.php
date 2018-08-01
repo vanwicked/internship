@@ -20,7 +20,7 @@ session_start();
 			$_SESSION['user']=$f2['user'];
 			$_SESSION['rol']=$f2['rol'];
 
-			echo '<script>alert("BIENVENIDO ADMINISTRADOR")</script> ';
+			//echo '<script>alert("BIENVENIDO ADMINISTRADOR")</script> ';
 			echo "<script>location.href='admin.php'</script>";
 		
 		}
@@ -29,7 +29,7 @@ session_start();
 
 	$sql=mysqli_query($mysqli,"SELECT * FROM login WHERE email='$username'");
 	if($f=mysqli_fetch_assoc($sql)){
-		if($pass==$f['password']){
+		if(password_verify($pass, $f2['password'])){
 			$_SESSION['id']=$f['id'];
 			$_SESSION['user']=$f['user'];
 			$_SESSION['rol']=$f['rol'];
@@ -42,7 +42,7 @@ session_start();
 		}
 	}else{
 		
-		echo '<script>alert("ESTE USUARIO NO EXISTE, PORFAVOR REGISTRESE PARA PODER INGRESAR")</script> ';
+		echo '<script>alert("Accesso Incorrecto :( ")</script> ';
 		
 		echo "<script>location.href='index.php'</script>";	
 

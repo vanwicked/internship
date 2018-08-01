@@ -41,9 +41,7 @@ if (@!$_SESSION['user']) {
 	<div class="container">
 	  <div class="nav-collapse">
 		<ul class="nav">
-			<li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>
-			 
-	
+			<li class=""><a href="registrar.php">Registro</a></li>
 		</ul>
 		<form action="#" class="navbar-search form-inline" style="margin-top:6px">
 		
