@@ -29,6 +29,7 @@ session_start();
 
 	$sql=mysqli_query($mysqli,"SELECT * FROM login WHERE email='$username'");
 	if($f=mysqli_fetch_assoc($sql)){
+		// contraseña encriptada
 		if(password_verify($pass, $f2['password'])){
 			$_SESSION['id']=$f['id'];
 			$_SESSION['user']=$f['user'];
