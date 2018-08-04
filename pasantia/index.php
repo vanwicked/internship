@@ -8,14 +8,14 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>INTERSHIP</title>
 </head>
-<body>
+<body background="img/login/lo">
 	<div class="boxlogin">
 		<center><h2 style="color: #FCF5F5; ">Login</h2>
 		<form action="validar.php" method="post">
 			<label>Correo:</label>
-			<input type="text" name="mail">
-		<label>Contraseña: </label>
-			<input type="password" name="pass">
+			<input type="text" name="mail" required>
+			<label>Contraseña: </label>
+			<input type="password" name="pass" required>
 		<br>
 			<input class="btn btn-danger" type="submit" value="Ingresar">
 		</form>
