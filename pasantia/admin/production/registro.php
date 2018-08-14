@@ -1,5 +1,4 @@
 <?php
-
 	$realname=$_POST['realname'];
 	$mail=$_POST['nick'];
 	$pass= $_POST['pass'];

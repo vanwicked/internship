@@ -78,33 +78,33 @@ $datos=$objeto->listar();
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Menu Principal <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">Dashboard</a></li>
-                      <!--<li><a href="index3.html">Dashboard3</a></li>-->
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="frm_usuarios.php">Formulario Usuario</a></li>
-                        <li><a href="frm_rol.php">Formulario Roles</a></li>
-                        <!--<li><a href="form.html">General Form</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-                        <li><a href="form_wizards.html">Form Wizard</a></li>
-                        <li><a href="form_upload.html">Form Upload</a></li>
-                        <li><a href="form_buttons.html">Form Buttons</a></li>-->
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-table"></i> Vistas <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="usuarios.php">Usuarios</a></li>
-                        <li><a href="rol.php">Roles</a></li>
-                        <!--<li><a href="tables.html">Tables</a></li>
-                        <li><a href="tables_dynamic.html">Table Dynamic</a></li>-->
-                    </ul>
-                  </li>
-                </ul>
+                  <ul class="nav side-menu">
+                      <li><a><i class="fa fa-home"></i> Menu Principal <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="#">Dashboard</a></li>
+                              <!--<li><a href="index3.html">Dashboard3</a></li>-->
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="frm_usuarios.php">Formulario Usuario</a></li>
+                              <li><a href="frm_rol.php">Formulario Roles</a></li>
+                              <!--<li><a href="form.html">General Form</a></li>
+                              <li><a href="form_validation.html">Form Validation</a></li>
+                              <li><a href="form_wizards.html">Form Wizard</a></li>
+                              <li><a href="form_upload.html">Form Upload</a></li>
+                              <li><a href="form_buttons.html">Form Buttons</a></li>-->
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-table"></i> Vistas <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="usuarios.php">Usuarios</a></li>
+                              <li><a href="rol.php">Roles</a></li>
+                              <!--<li><a href="tables.html">Tables</a></li>
+                              <li><a href="tables_dynamic.html">Table Dynamic</a></li>-->
+                          </ul>
+                      </li>
+                  </ul>
               </div>
             </div>
             <!-- /sidebar menu -->
@@ -224,7 +224,82 @@ $datos=$objeto->listar();
           </div>
         </div>
         <!-- /top navigation -->
-          <img src="img/mantenimiento.png" alt="mantenimiento" style="position: absolute; left: 400px; top: 110px;">
+          <div class="right_col" role="main">
+              <div class="">
+                  <div class="page-title">
+                      <div class="title_left">
+                          <h3>Lista de Usuarios <small>Se muestran los usuarios del sistema</small></h3>
+                      </div>
+
+                      <div class="title_right">
+                          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                              <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Buscar en...">
+                                  <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              <div class="clearfix"></div>
+
+              <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                      <div class="x_title">
+                          <h2>Usuarios</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                      <li><a href="#">Settings 1</a>
+                                      </li>
+                                      <li><a href="#">Settings 2</a>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                          <!--<p class="text-muted font-13 m-b-30">
+                              DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
+                          </p>-->
+                          <table id="datatable" class="table table-striped table-bordered">
+                              <thead>
+                              <tr>
+                                  <th>Id Usuario:</th>
+                                  <th>Nombre:</th>
+                                  <th>Email:</th>
+                                  <th>Id Rol:</th>
+                                  <th>Opciones:</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <?php
+                              while($row=mysqli_fetch_assoc($datos)){
+                                  echo "<tr>";
+                                  echo "<td>".$row['id']."</td>";
+                                  echo "<td>".$row['user']."</td>";
+                                  echo "<td>".$row['email']."</td>";
+                                  echo "<td>".$row['idRol']."</td>";
+                                  $id_persona=$row['id'];
+                                  echo "<td><a class='btn btn-danger col-md-5' href='../../controlador/ctrl_agregarusuario.php?id_persona=".$id_persona."'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
+                            <a class=' btn btn-success col-md-5'><i class='fa fa-cog' aria-hidden='true'></i></a></td>";
+                                  echo "</tr>";
+                              }?>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+              </div>
+          </div>
           <!-- footer content -->
         <footer>
           <div class="pull-right">

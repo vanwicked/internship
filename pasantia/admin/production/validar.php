@@ -28,12 +28,12 @@ session_start();
 
 	$sql=mysqli_query($mysqli,"SELECT * FROM login WHERE email='$username'");
 	if($f=mysqli_fetch_assoc($sql)){
-		if(password_verify($pass, $f2['password'])){
+		if(password_verify($pass, $f['password'])){
 			$_SESSION['id']=$f['id'];
 			$_SESSION['user']=$f['user'];
 			$_SESSION['idRol']=$f['idRol'];
 
-			header("Location: index2.php");
+			header("Location: index.php");
 		}else{
 			echo '<script>alert("CONTRASEÑA INCORRECTA")</script> ';
 		

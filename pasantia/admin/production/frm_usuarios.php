@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 if (@!$_SESSION['user']) {
@@ -9,10 +8,8 @@ if (@!$_SESSION['user']) {
 elseif ($_SESSION['idRol']==3) {
   header("Location:estudiante.php");
 }
-include_once ('../../modelo/mdl_login.php');
-$objeto=new mdl_login();
-$datos=$objeto->listar();
 ?>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -39,12 +36,7 @@ $datos=$objeto->listar();
     <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-      <!-- Datatables -->
-      <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-      <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-      <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-      <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-      <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
@@ -78,33 +70,33 @@ $datos=$objeto->listar();
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Menu Principal <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">Dashboard</a></li>
-                      <!--<li><a href="index3.html">Dashboard3</a></li>-->
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="frm_usuarios.php">Formulario Usuario</a></li>
-                        <li><a href="frm_rol.php">Formulario Roles</a></li>
-                        <!--<li><a href="form.html">General Form</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-                        <li><a href="form_wizards.html">Form Wizard</a></li>
-                        <li><a href="form_upload.html">Form Upload</a></li>
-                        <li><a href="form_buttons.html">Form Buttons</a></li>-->
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-table"></i> Vistas <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="usuarios.php">Usuarios</a></li>
-                        <li><a href="rol.php">Roles</a></li>
-                        <!--<li><a href="tables.html">Tables</a></li>
-                        <li><a href="tables_dynamic.html">Table Dynamic</a></li>-->
-                    </ul>
-                  </li>
-                </ul>
+                  <ul class="nav side-menu">
+                      <li><a><i class="fa fa-home"></i> Menu Principal <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="#">Dashboard</a></li>
+                              <!--<li><a href="index3.html">Dashboard3</a></li>-->
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="frm_usuarios.php">Formulario Usuario</a></li>
+                              <li><a href="frm_rol.php">Formulario Roles</a></li>
+                              <!--<li><a href="form.html">General Form</a></li>
+                              <li><a href="form_validation.html">Form Validation</a></li>
+                              <li><a href="form_wizards.html">Form Wizard</a></li>
+                              <li><a href="form_upload.html">Form Upload</a></li>
+                              <li><a href="form_buttons.html">Form Buttons</a></li>-->
+                          </ul>
+                      </li>
+                      <li><a><i class="fa fa-table"></i> Vistas <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                              <li><a href="usuarios.php">Usuarios</a></li>
+                              <li><a href="rol.php">Roles</a></li>
+                              <!--<li><a href="tables.html">Tables</a></li>
+                              <li><a href="tables_dynamic.html">Table Dynamic</a></li>-->
+                          </ul>
+                      </li>
+                  </ul>
               </div>
             </div>
             <!-- /sidebar menu -->
@@ -224,8 +216,104 @@ $datos=$objeto->listar();
           </div>
         </div>
         <!-- /top navigation -->
-          <img src="img/mantenimiento.png" alt="mantenimiento" style="position: absolute; left: 400px; top: 110px;">
-          <!-- footer content -->
+          <!-- page content -->
+          <div class="right_col" role="main">
+              <div class="">
+                  <div class="page-title">
+                      <div class="title_left">
+                          <h3>Formulario Usuarios</h3>
+                      </div>
+
+                      <div class="title_right">
+                          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                              <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Buscar en...">
+                                  <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">Go!</button>
+                          </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="row">
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="x_panel">
+                              <div class="x_title">
+                                  <h2>Formulario de Usuarios Nuevos</h2>
+                                  <ul class="nav navbar-right panel_toolbox">
+                                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                      </li>
+                                      <li class="dropdown">
+                                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                          <ul class="dropdown-menu" role="menu">
+                                              <li><a href="#">Settings 1</a>
+                                              </li>
+                                              <li><a href="#">Settings 2</a>
+                                              </li>
+                                          </ul>
+                                      </li>
+                                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                      </li>
+                                  </ul>
+                                  <div class="clearfix"></div>
+                              </div>
+                              <div class="x_content">
+
+                                  <form method="post" action="" class="form-horizontal form-label-left"  novalidate>
+                                      <span class="section">Información Personal:</span>
+
+                                      <div class="item form-group">
+                                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre Completo: <span class="required">*</span>
+                                          </label>
+                                          <div class="col-md-6 col-sm-6 col-xs-12">
+                                              <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="realname" placeholder="Ingresar nombres..." required="required" type="text">
+                                          </div>
+                                      </div>
+                                      <div class="item form-group">
+                                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email: <span class="required">*</span>
+                                          </label>
+                                          <div class="col-md-6 col-sm-6 col-xs-12">
+                                              <input type="email" id="email" name="nick" required="required" class="form-control col-md-7 col-xs-12">
+                                          </div>
+                                      </div>
+                                      <div class="item form-group">
+                                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirmar Email: <span class="required">*</span>
+                                          </label>
+                                          <div class="col-md-6 col-sm-6 col-xs-12">
+                                              <input type="email" id="email2" data-validate-linked="nick" required="required" class="form-control col-md-7 col-xs-12">
+                                          </div>
+                                      </div>
+                                      <div class="item form-group">
+                                          <label for="password" class="control-label col-md-3">Contraseña: </label>
+                                          <div class="col-md-6 col-sm-6 col-xs-12">
+                                              <input id="password" type="password" name="pass" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
+                                          </div>
+                                      </div>
+                                      <div class="item form-group">
+                                          <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repita la Contraseña: </label>
+                                          <div class="col-md-6 col-sm-6 col-xs-12">
+                                              <input id="password2" type="password" name="rpass" data-validate-linked="pass" class="form-control col-md-7 col-xs-12" required="required">
+                                          </div>
+                                      </div>
+                                      <div class="ln_solid"></div>
+                                      <div class="form-group">
+                                          <div class="col-md-6 col-md-offset-3">
+                                              <button class="btn btn-primary">Cancelar</button>
+                                              <button type="submit" name="enviar" class="btn btn-success">Registrar</button>
+                                              <input  class="btn btn-danger" type="submit" name="submit" value="Registrarse"/>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- /page content -->
+        <!-- footer content -->
         <footer>
           <div class="pull-right">
             Menu Administrador -<a href="index.php"> Intership</a>
@@ -244,6 +332,8 @@ $datos=$objeto->listar();
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
+
+    <script src="../vendors/validator/validator.js"></script>
     <!-- Chart.js -->
     <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
     <!-- gauge.js -->
@@ -274,25 +364,12 @@ $datos=$objeto->listar();
     <script src="../vendors/moment/min/moment.min.js"></script>
     <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-    <!-- Datatables -->
-    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
-
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-	
+    <?php
+    if(isset($_POST['enviar'])){
+        require("registro.php");
+    }
+    ?>
   </body>
 </html>
