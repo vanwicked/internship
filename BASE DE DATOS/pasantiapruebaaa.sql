@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.0.1 (64 bit)
-MySQL - 5.6.21 : Database - controlpasantiaa
+MySQL - 5.6.21 : Database - controlpasantiaaa
 *********************************************************************
 */
 
@@ -12,9 +12,9 @@ MySQL - 5.6.21 : Database - controlpasantiaa
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`controlpasantiaa` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`controlpasantiaaa` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `controlpasantiaa`;
+USE `controlpasantiaaa`;
 
 /*Table structure for table `carrera` */
 
@@ -27,13 +27,9 @@ CREATE TABLE `carrera` (
   PRIMARY KEY (`idCarrera`),
   KEY `idModalidad` (`idModalidad`),
   CONSTRAINT `carrera_ibfk_1` FOREIGN KEY (`idModalidad`) REFERENCES `modalidad` (`idModalidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `carrera` */
-
-insert  into `carrera`(`idCarrera`,`nombre`,`idModalidad`) values 
-(1,'sis',1),
-(2,'gastronomia',1);
 
 /*Table structure for table `cuaderno` */
 
@@ -44,33 +40,9 @@ CREATE TABLE `cuaderno` (
   `fecha` date NOT NULL,
   `observacion` varchar(100) NOT NULL,
   PRIMARY KEY (`idCuaderno`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
-/*Data for the table `cuaderno` */
-
-insert  into `cuaderno`(`idCuaderno`,`fecha`,`observacion`) values 
-(1,'2018-08-06','frfd');
-
-/*Table structure for table `cuenta` */
-
-DROP TABLE IF EXISTS `cuenta`;
-
-CREATE TABLE `cuenta` (
-  `idUsusario` int(11) DEFAULT NULL,
-  `idRol` int(11) DEFAULT NULL,
-  `idPersona` int(11) DEFAULT NULL,
-  KEY `idUsusario` (`idUsusario`),
-  KEY `idPersona` (`idPersona`),
-  KEY `idRol` (`idRol`),
-  CONSTRAINT `cuenta_ibfk_1` FOREIGN KEY (`idUsusario`) REFERENCES `usuario` (`idUsusario`),
-  CONSTRAINT `cuenta_ibfk_2` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`),
-  CONSTRAINT `cuenta_ibfk_3` FOREIGN KEY (`idRol`) REFERENCES `rol` (`idRol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `cuenta` */
-
-insert  into `cuenta`(`idUsusario`,`idRol`,`idPersona`) values 
-(1,1,2);
+/*Data for the table `cuaderno` */
 
 /*Table structure for table `digital` */
 
@@ -122,18 +94,15 @@ DROP TABLE IF EXISTS `empleado`;
 
 CREATE TABLE `empleado` (
   `idEmpleado` int(11) NOT NULL AUTO_INCREMENT,
+  `cargo` varchar(50) NOT NULL,
   `idPersona` int(11) NOT NULL,
   `activo` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`idEmpleado`),
   KEY `idPersona` (`idPersona`),
   CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `empleado` */
-
-insert  into `empleado`(`idEmpleado`,`idPersona`,`activo`) values 
-(1,2,1),
-(5,2,1);
 
 /*Table structure for table `encargado` */
 
@@ -144,19 +113,15 @@ CREATE TABLE `encargado` (
   `idPersona` int(11) NOT NULL,
   `idInstitucion` int(11) NOT NULL,
   `telefono` int(11) NOT NULL,
-  `cargo` varchar(50) NOT NULL,
+  `cargo` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idEncargado`),
   KEY `idPersona` (`idPersona`),
   KEY `idInstitucion` (`idInstitucion`),
   CONSTRAINT `encargado_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`),
   CONSTRAINT `encargado_ibfk_2` FOREIGN KEY (`idInstitucion`) REFERENCES `institucion` (`idInstitucion`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `encargado` */
-
-insert  into `encargado`(`idEncargado`,`idPersona`,`idInstitucion`,`telefono`,`cargo`) values 
-(3,2,1,0,''),
-(4,2,1,79591507,'vanessa');
 
 /*Table structure for table `estudiante` */
 
@@ -172,13 +137,9 @@ CREATE TABLE `estudiante` (
   KEY `idPersona` (`idPersona`),
   CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`idCarrera`) REFERENCES `carrera` (`idCarrera`),
   CONSTRAINT `estudiante_ibfk_2` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `estudiante` */
-
-insert  into `estudiante`(`idEstudiante`,`idCarrera`,`idPersona`,`activo`) values 
-(1,1,2,1),
-(2,2,16,1);
 
 /*Table structure for table `formulario` */
 
@@ -195,12 +156,9 @@ CREATE TABLE `formulario` (
   KEY `idTipoFormulario` (`idTipoFormulario`),
   CONSTRAINT `formulario_ibfk_1` FOREIGN KEY (`idCarrera`) REFERENCES `carrera` (`idCarrera`),
   CONSTRAINT `formulario_ibfk_2` FOREIGN KEY (`idTipoFormulario`) REFERENCES `tipoformulario` (`idTipoFormulario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `formulario` */
-
-insert  into `formulario`(`idFormulario`,`descripcion`,`fecha`,`idCarrera`,`idTipoFormulario`) values 
-(1,'dd','2018-08-14',1,1);
 
 /*Table structure for table `formularioencargado` */
 
@@ -220,12 +178,9 @@ CREATE TABLE `formularioencargado` (
   CONSTRAINT `formularioencargado_ibfk_1` FOREIGN KEY (`idEstudiante`) REFERENCES `estudiante` (`idEstudiante`),
   CONSTRAINT `formularioencargado_ibfk_2` FOREIGN KEY (`idEncargado`) REFERENCES `encargado` (`idEncargado`),
   CONSTRAINT `formularioencargado_ibfk_3` FOREIGN KEY (`idEncargado`) REFERENCES `encargado` (`idEncargado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `formularioencargado` */
-
-insert  into `formularioencargado`(`idFormEncargado`,`idEncargado`,`rubro`,`idEstudiante`,`facCalidad`,`facResponsabilidad`,`facOrgTrabajo`) values 
-(1,3,'tgr',1,20,10,10);
 
 /*Table structure for table `formulariotutor` */
 
@@ -240,29 +195,14 @@ CREATE TABLE `formulariotutor` (
   `idEstudiante` int(11) NOT NULL,
   PRIMARY KEY (`idFormTutor`),
   KEY `idEstudiante` (`idEstudiante`),
-  KEY `idCuaderno` (`idCuaderno`),
   KEY `idEmpleado` (`idEmpleado`),
+  KEY `idCuaderno` (`idCuaderno`),
   CONSTRAINT `formulariotutor_ibfk_1` FOREIGN KEY (`idEstudiante`) REFERENCES `estudiante` (`idEstudiante`),
-  CONSTRAINT `formulariotutor_ibfk_2` FOREIGN KEY (`idCuaderno`) REFERENCES `cuaderno` (`idCuaderno`),
-  CONSTRAINT `formulariotutor_ibfk_3` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
-/*Data for the table `formulariotutor` */
-
-insert  into `formulariotutor`(`idFormTutor`,`nota`,`descripcion`,`idCuaderno`,`idEmpleado`,`idEstudiante`) values 
-(2,11,'gv',1,1,1);
-
-/*Table structure for table `funcionalidad` */
-
-DROP TABLE IF EXISTS `funcionalidad`;
-
-CREATE TABLE `funcionalidad` (
-  `idFuncionalidad` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`idFuncionalidad`)
+  CONSTRAINT `formulariotutor_ibfk_2` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`),
+  CONSTRAINT `formulariotutor_ibfk_3` FOREIGN KEY (`idCuaderno`) REFERENCES `cuaderno` (`idCuaderno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `funcionalidad` */
+/*Data for the table `formulariotutor` */
 
 /*Table structure for table `indicador` */
 
@@ -275,12 +215,9 @@ CREATE TABLE `indicador` (
   PRIMARY KEY (`idIndicador`),
   KEY `idFormulario` (`idFormulario`),
   CONSTRAINT `indicador_ibfk_1` FOREIGN KEY (`idFormulario`) REFERENCES `formulario` (`idFormulario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `indicador` */
-
-insert  into `indicador`(`idIndicador`,`descripcion`,`idFormulario`) values 
-(1,'hh',1);
 
 /*Table structure for table `institucion` */
 
@@ -293,12 +230,27 @@ CREATE TABLE `institucion` (
   `telefono` int(11) NOT NULL,
   `convenios` varchar(100) NOT NULL,
   PRIMARY KEY (`idInstitucion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `institucion` */
 
-insert  into `institucion`(`idInstitucion`,`nombre`,`direccion`,`telefono`,`convenios`) values 
-(1,'ss','ss',11,'dd');
+/*Table structure for table `login` */
+
+DROP TABLE IF EXISTS `login`;
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `pasadmin` varchar(50) NOT NULL,
+  `idRol` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idRol` (`idRol`),
+  CONSTRAINT `login_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `rol` (`idRol`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `login` */
 
 /*Table structure for table `modalidad` */
 
@@ -308,12 +260,9 @@ CREATE TABLE `modalidad` (
   `idModalidad` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`idModalidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `modalidad` */
-
-insert  into `modalidad`(`idModalidad`,`nombre`) values 
-(1,'anual');
 
 /*Table structure for table `nota` */
 
@@ -329,13 +278,9 @@ CREATE TABLE `nota` (
   KEY `idIndicador` (`idIndicador`),
   CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`idPasantia`) REFERENCES `pasantia` (`idPasantia`),
   CONSTRAINT `nota_ibfk_2` FOREIGN KEY (`idIndicador`) REFERENCES `indicador` (`idIndicador`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `nota` */
-
-insert  into `nota`(`idNota`,`notaFinal`,`idPasantia`,`idIndicador`) values 
-(1,11,1,1),
-(2,100,1,1);
 
 /*Table structure for table `numvisita` */
 
@@ -371,12 +316,9 @@ CREATE TABLE `pasantia` (
   CONSTRAINT `pasantia_ibfk_2` FOREIGN KEY (`idEstudiante`) REFERENCES `estudiante` (`idEstudiante`),
   CONSTRAINT `pasantia_ibfk_3` FOREIGN KEY (`idInstitucion`) REFERENCES `institucion` (`idInstitucion`),
   CONSTRAINT `pasantia_ibfk_4` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `pasantia` */
-
-insert  into `pasantia`(`idPasantia`,`f⁪echaInicio`,`fechaFin`,`numPasantia`,`idCarrera`,`idEmpleado`,`idInstitucion`,`idEstudiante`) values 
-(1,'2018-09-28','2018-08-22','1',1,1,1,1);
 
 /*Table structure for table `persona` */
 
@@ -396,30 +338,9 @@ CREATE TABLE `persona` (
   PRIMARY KEY (`idPersona`),
   KEY `idRol` (`idRol`),
   CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `rol` (`idRol`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
-
-/*Data for the table `persona` */
-
-insert  into `persona`(`idPersona`,`dni`,`nombre`,`primerAp`,`segundoAp`,`telefono`,`direccion`,`email`,`activo`,`idRol`) values 
-(2,'admin','adminitrador','admin','admin',0,'admin','admin@gmail.com',1,1),
-(16,'5555','ddd','dd','dd',79591507,'ddd','shantalmamani2018@gmail.com',1,1),
-(17,'4946','BBB','BB','BB',79591507,'SACABA','elyf361890@gmail.com',1,1),
-(19,'$this->dni','$this->nombre','$this->primerAp','$this->segundoAp',0,'$this->direccion','$this->email',0,1);
-
-/*Table structure for table `privilegios` */
-
-DROP TABLE IF EXISTS `privilegios`;
-
-CREATE TABLE `privilegios` (
-  `idRol` int(11) DEFAULT NULL,
-  `idFuncionalidad` int(11) DEFAULT NULL,
-  KEY `idRol` (`idRol`),
-  KEY `idFuncionalidad` (`idFuncionalidad`),
-  CONSTRAINT `privilegios_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `rol` (`idRol`),
-  CONSTRAINT `privilegios_ibfk_2` FOREIGN KEY (`idFuncionalidad`) REFERENCES `funcionalidad` (`idFuncionalidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `privilegios` */
+/*Data for the table `persona` */
 
 /*Table structure for table `registro` */
 
@@ -482,12 +403,9 @@ CREATE TABLE `rol` (
   `nombre` varchar(50) DEFAULT NULL,
   `activo` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`idRol`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `rol` */
-
-insert  into `rol`(`idRol`,`nombre`,`activo`) values 
-(1,'administrador',1);
 
 /*Table structure for table `tipodocumento` */
 
@@ -515,31 +433,9 @@ CREATE TABLE `tipoformulario` (
   KEY `idFormTutor` (`idFormTutor`),
   CONSTRAINT `tipoformulario_ibfk_1` FOREIGN KEY (`idFormEncargado`) REFERENCES `formularioencargado` (`idFormEncargado`),
   CONSTRAINT `tipoformulario_ibfk_2` FOREIGN KEY (`idFormTutor`) REFERENCES `formulariotutor` (`idFormTutor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tipoformulario` */
-
-insert  into `tipoformulario`(`idTipoFormulario`,`descripcion`,`idFormEncargado`,`idFormTutor`) values 
-(1,'eee',1,2);
-
-/*Table structure for table `usuario` */
-
-DROP TABLE IF EXISTS `usuario`;
-
-CREATE TABLE `usuario` (
-  `idUsusario` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario` varchar(50) NOT NULL,
-  `contraseña` varchar(50) NOT NULL,
-  `idPersona` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idUsusario`),
-  KEY `idPersona` (`idPersona`),
-  CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
-/*Data for the table `usuario` */
-
-insert  into `usuario`(`idUsusario`,`usuario`,`contraseña`,`idPersona`) values 
-(1,'admin@gmail.com','0192023a7bbd73250516f069df18b500',2);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
