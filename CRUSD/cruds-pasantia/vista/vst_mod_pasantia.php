@@ -29,10 +29,10 @@ $idEstudiante = $row["idEstudiante"];
 ?>
 
 <div class="container">
-	<h1>PASANTIA</h1>
+	<h1>Pasantia</h1>
 	<form name="f1" method="post" action="../enrutador/enr_pasantia.php" class="form-group">
-		<label for="idPasantia">id_Pasantia</label>
-		<input type="number" name="idPasantia" value="<?php echo $idPasantia;  ?>" class="form-control">
+		<label for="idPasantia"></label>
+		<input type="hidden" name="idPasantia" value="<?php echo $idPasantia;  ?>" class="form-control">
 
 		<label for="fechaInicio">fecha_Inicio</label>
 		<input type="date" name="fechaInicio" value="<?php echo $fechaInicio;  ?>"  class="form-control">

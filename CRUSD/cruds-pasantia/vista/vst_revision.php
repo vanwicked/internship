@@ -47,11 +47,11 @@
 
 
 <div class="container">
-<h1>Lista de revision</h1>
+<h1>Lista de Revision</h1>
 
 
 <br>
-<span>agregar revision <a href="vst_agregar_revision.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
+<span>AGREGAR<a href="vst_agregar_revision.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
 <br><br><br>
 
 <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">

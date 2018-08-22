@@ -24,15 +24,15 @@ $descripcion = $row["descripcion"];
 ?>
 
 <div class="container">
-	<h1>documento tipodoc</h1>
+	<h1>Tipo-Doc</h1>
 	<form name="f1" method="post" action="../enrutador/enr_tipoDoc.php" class="form-group">
-		<label for="idTipoDoc">idTipoDoc:</label>
-		<input type="number" name="idTipoDoc" value="<?php echo $idTipoDoc;  ?>" class="form-control">
+		<label for="idTipoDoc"></label>
+		<input type="hidden" name="idTipoDoc" value="<?php echo $idTipoDoc;  ?>" class="form-control">
 
 		<label for="descripcion">descripcion:</label>
 		<input type="text" name="descripcion" value="<?php echo $descripcion;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar tipodoc" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

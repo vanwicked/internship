@@ -47,20 +47,19 @@
 
 
 <div class="container">
-<h1>Lista de empleado</h1>
+<h1>Lista de Empleado</h1>
 
 
 <br>
-<span>agregar empleado <a href="vst_agregar_empleado.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
+<span>AGREGAR <a href="vst_agregar_empleado.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
 <br><br><br>
 
 <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
         <thead>
             <tr>
                 <th>idEmpleado</th>
-                <th>cargo</th>
-                <th>sueldo</th>
                 <th>idPersona</th>
+                <th>activo</th>
                 <th>Eliminar</th>
                 <th>Modificar</th>
                 </tr>
@@ -79,9 +78,8 @@ while($row=mysqli_fetch_assoc($resp)){
       
         echo "<tr>";
         echo "<td>".$row["idEmpleado"]."</td>";
-        echo "<td>".$row["cargo"]."</td>";
-        echo "<td>".$row["sueldo"]."</td>";
         echo "<td>".$row["idPersona"]."</td>";
+        echo "<td>".$row["activo"]."</td>";
         echo "<td> <a href='../enrutador/enr_empleado.php?idEmpleado=".$idEmpleado."' class='glyphicon glyphicon-trash'></a></td>";
         echo "<td><a href='vst_mod_empleado.php?idEmpleado=".$idEmpleado."' class='glyphicon glyphicon-edit'></a></td>";
         echo "</tr>";
@@ -94,9 +92,8 @@ while($row=mysqli_fetch_assoc($resp)){
         <tfoot>
             <tr>
                 <th>IDEMPLEADO</th>
-                <th>CARGO</th>
-                <th>SUELDO</th>
                 <th>IDPERSONA</th>
+                <th>ACTIVO</th>
                 <th>ELIMINAR</th>
                 <th>MODIFICAR</th>
                 

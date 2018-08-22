@@ -19,28 +19,24 @@ $obj= new ctrl_empleado();
 $res=$obj->listar_dato($idEmpleado);
 
 $row=mysqli_fetch_array($res);
-$cargo = $row["cargo"];
-$sueldo = $row["sueldo"];
 $idPersona = $row["idPersona"];
+$activo = $row["activo"];
 
 ?>
 
 <div class="container">
-	<h1>documento empleado</h1>
+	<h1>Empleado</h1>
 	<form name="f1" method="post" action="../enrutador/enr_empleado.php" class="form-group">
-		<label for="idEmpleado">idEmpleado:</label>
-		<input type="number" name="idEmpleado" value="<?php echo $idEmpleado;  ?>" class="form-control">
-
-		<label for="cargo">cargo:</label>
-		<input type="text" name="cargo" value="<?php echo $cargo;  ?>"  class="form-control">
-
-		<label for="sueldo">sueldo:</label>
-		<input type="number" name="sueldo" value="<?php echo $sueldo;  ?>"  class="form-control">
+		<label for="idEmpleado"></label>
+		<input type="hidden" name="idEmpleado" value="<?php echo $idEmpleado;  ?>" class="form-control">
 
 		<label for="idPersona">idPersona:</label>
 		<input type="number" name="idPersona" value="<?php echo $idPersona;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar empleado" class="btn btn-primary ">
+		<label for="activo">activo:</label>
+		<input type="tinyint" name="activo" value="<?php echo $activo;  ?>"  class="form-control">
+
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

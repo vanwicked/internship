@@ -4,18 +4,18 @@ require("conexion.php");
 class mdl_estudiante
 {
 	public $idEstudiante;
-	public $celular;
-	public $carrera;
+	public $idCarrera;
 	public $idPersona;
+	public $activo;
 	public $conec;
 
 
 	function __construct()
 	{
 	$this->idEstudiante=0;
-	$this->celular=0;
-	$this->carrera="";
+	$this->idCarrera=0;
 	$this->idPersona=0;
+	$this->activo=0;
 	$this->conec=new conexion();
 	}
 
@@ -26,15 +26,15 @@ class mdl_estudiante
 	public function insertar()
 	{
 		
-		$sql="insert into estudiante (idEstudiante, celular, carrera, idPersona)
+		$sql="insert into estudiante (idEstudiante, idCarrera, idPersona, activo)
 		values('$this->idEstudiante',
-		'$this->celular', '$this->carrera', '$this->idPersona')";
+		 '$this->idCarrera', '$this->idPersona','$this->activo')";
 		$this->conec->sin_retorno($sql);
 	}
 
 	public function listar()
 	{
-			$sql="SELECT * FROM estudiante ORDER BY celular ASC";
+			$sql="SELECT * FROM estudiante ORDER BY idCarrera ASC";
 			return $this->conec->con_retorno($sql);
 	}
 
@@ -54,7 +54,7 @@ class mdl_estudiante
 
 	public function modificar()
 	{
-		 $sql="UPDATE estudiante SET celular='$this->celular' , carrera='$this->carrera', idPersona='$this->idPersona' where idEstudiante='$this->idEstudiante'  ";
+		 $sql="UPDATE estudiante SET idCarrera='$this->idCarrera', idPersona='$this->idPersona' , activo='$this->activo' where idEstudiante='$this->idEstudiante'  ";
 		 $this->conec->sin_retorno($sql);
 		  ?>
 		<script type="text/javascript">
@@ -64,7 +64,7 @@ class mdl_estudiante
 	 <?php
 	}
 public function get_combo_modalidad(){
-	$sql="SELECT * FROM estudiante ORDER BY celular ASC";
+	$sql="SELECT * FROM estudiante ORDER BY idCarrera ASC";
 					
 			return $this->conec->con_retorno($sql);
 	}

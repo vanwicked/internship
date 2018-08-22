@@ -26,10 +26,10 @@ $idEmpleado = $row["idEmpleado"];
 ?>
 
 <div class="container">
-	<h1>documento revision-visita</h1>
+	<h1>Revision Visita</h1>
 	<form name="f1" method="post" action="../enrutador/enr_revisionvisita.php" class="form-group">
-		<label for="idVisita">idVisita:</label>
-		<input type="number" name="idVisita" value="<?php echo $idVisita;  ?>" class="form-control">
+		<label for="idVisita"></label>
+		<input type="hidden" name="idVisita" value="<?php echo $idVisita;  ?>" class="form-control">
 
 		<label for="fecha">fecha:</label>
 		<input type="date" name="fecha" value="<?php echo $fecha;  ?>"  class="form-control">
@@ -40,7 +40,7 @@ $idEmpleado = $row["idEmpleado"];
 		<label for="idEmpleado">idEmpleado:</label>
 		<input type="number" name="idEmpleado" value="<?php echo $idEmpleado;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar revision-visita" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

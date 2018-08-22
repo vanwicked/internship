@@ -1,17 +1,19 @@
 <?php 
 require("conexion.php");
 
-class mdl_tipoDoc
+class mdl_rol
 {
-	public $idTipoDoc;
-	public $descripcion;
+	public $idRol;
+	public $nombre;
+	public $activo;
 	public $conec;
 
 
 	function __construct()
 	{
-	$this->idTipoDoc=0;
-	$this->descripcion="";
+	$this->idRol=0;
+	$this->nombre="";
+	$this->activo=0;
 	$this->conec=new conexion();
 	}
 
@@ -22,45 +24,45 @@ class mdl_tipoDoc
 	public function insertar()
 	{
 		
-		$sql="insert into tipodocumento (idTipoDoc, descripcion)
-		values('$this->idTipoDoc',
-		'$this->descripcion')";
+		$sql="insert into rol (idRol, nombre, activo)
+		values('$this->idRol',
+		'$this->nombre', '$this->activo')";
 		$this->conec->sin_retorno($sql);
 	}
 
 	public function listar()
 	{
-			$sql="SELECT * FROM tipodocumento ORDER BY descripcion ASC";
+			$sql="SELECT * FROM rol ORDER BY nombre ASC";
 			return $this->conec->con_retorno($sql);
 	}
 
 	public function eliminar()
 	{
-		$sql="delete from tipodocumento where idTipoDoc='$this->idTipoDoc'";
+		$sql="delete from rol where idRol='$this->idRol'";
 		$this->conec->sin_retorno($sql);
 
 	}
 
 	public function listar_dato()
 	{
-			$sql="select * from tipodocumento where idTipoDoc='$this->idTipoDoc' ";
+			$sql="select * from rol where idRol='$this->idRol' ";
 			$resp=$this->conec->con_retorno($sql);
 			return $resp;
 	}
 
 	public function modificar()
 	{
-		 $sql="UPDATE tipodocumento SET descripcion='$this->descripcion' where idTipoDoc='$this->idTipoDoc'  ";
+		 $sql="UPDATE rol SET nombre='$this->nombre' , activo='$this->activo' where idRol='$this->idRol'  ";
 		 $this->conec->sin_retorno($sql);
 		  ?>
 		<script type="text/javascript">
-			window.location.href("../vista/vst_tipoDoc.php");
+			window.location.href("../vista/vst_carrera.php");
 
 		</script>
 	 <?php
 	}
 public function get_combo_modalidad(){
-	$sql="SELECT * FROM tipodocumento ORDER BY descripcion ASC";
+	$sql="SELECT * FROM rol ORDER BY nombre ASC";
 					
 			return $this->conec->con_retorno($sql);
 	}

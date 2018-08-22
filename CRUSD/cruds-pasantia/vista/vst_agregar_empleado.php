@@ -11,21 +11,32 @@
 <body>
       
 <div class="container">
-	<h1> EMPLEADO</h1>
+	<h1> Empleado</h1>
 	<form name="f1" method="post" action="../enrutador/enr_empleado.php" class="form-group">
-		<label for="idEmpleado">idEmpleado:</label>
-		<input type="number" name="idEmpleado" value="" class="form-control">
-
-		<label for="cargo">cargo:</label>
-		<input type="text" name="cargo" value=""  class="form-control">
-
-		<label for="sueldo">sueldo:</label>
-	    <input type="number" name="sueldo" value=""  class="form-control">
+		<label for="idEmpleado"></label>
+		<input type="hidden" name="idEmpleado" value="" class="form-control">
 
 	   <label for="idPersona">idPersona:</label>
-	    <input type="number" name="idPersona" value=""  class="form-control">
+      <select name="idPersona" class="form-control">
+          <option value="0">seleccionar</option>
+        
+          <?php
+               require("../modelo/mdl_persona.php");
+               $obj1=new mdl_persona();
+               $resp1=$obj1->listar();
+               print_r($resp1);
+               while($row1=mysqli_fetch_assoc($resp1)){
+                $cod1=$row1["idPersona"];
+                $rol1=$row1["nombre"];
+                echo "<option value='".$cod1."'>".$rol1."<option>";
+              }
+              ?>
+         </select>
 
-		<input type="submit" name="btn" value="Agregar empleado" class="btn btn-primary ">
+    <label for="activo">activo:</label>
+		<input type="int" name="activo" value="" class="form-control">
+
+		<input type="submit" name="btn" value="Agregar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

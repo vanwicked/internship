@@ -25,10 +25,10 @@ $idFormulario = $row["idFormulario"];
 ?>
 
 <div class="container">
-	<h1>documento indicador</h1>
+	<h1>Indicador</h1>
 	<form name="f1" method="post" action="../enrutador/enr_indicador.php" class="form-group">
-		<label for="idIndicador">idIndicador:</label>
-		<input type="number" name="idIndicador" value="<?php echo $idIndicador;  ?>" class="form-control">
+		<label for="idIndicador"></label>
+		<input type="hidden" name="idIndicador" value="<?php echo $idIndicador;  ?>" class="form-control">
 
 		<label for="descripcion">descripcion:</label>
 		<input type="text" name="descripcion" value="<?php echo $descripcion;  ?>"  class="form-control">
@@ -36,7 +36,7 @@ $idFormulario = $row["idFormulario"];
 		<label for="idFormulario">idFormulario:</label>
 		<input type="number" name="idFormulario" value="<?php echo $idFormulario;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar indicador" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

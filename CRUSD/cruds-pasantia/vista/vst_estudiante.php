@@ -47,20 +47,20 @@
 
 
 <div class="container">
-<h1>Lista de estudiante</h1>
+<h1>Lista de Estudiante</h1>
 
 
 <br>
-<span>agregar estudiante <a href="vst_agregar_estudiante.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
+<span>AGREGAR <a href="vst_agregar_estudiante.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
 <br><br><br>
 
 <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
         <thead>
             <tr>
                 <th>idEstudiante</th>
-                <th>celular</th>
-                <th>carrera</th>
+                <th>idCarrera</th>
                 <th>idPersona</th>
+                <th>activo</th>
                 <th>Eliminar</th>
                 <th>Modificar</th>
                 </tr>
@@ -79,9 +79,9 @@ while($row=mysqli_fetch_assoc($resp)){
       
         echo "<tr>";
         echo "<td>".$row["idEstudiante"]."</td>";
-        echo "<td>".$row["celular"]."</td>";
-        echo "<td>".$row["carrera"]."</td>";
+        echo "<td>".$row["idCarrera"]."</td>";
         echo "<td>".$row["idPersona"]."</td>";
+        echo "<td>".$row["activo"]."</td>";
         echo "<td> <a href='../enrutador/enr_estudiante.php?idEstudiante=".$idEstudiante."' class='glyphicon glyphicon-trash'></a></td>";
         echo "<td><a href='vst_mod_estudiante.php?idEstudiante=".$idEstudiante."' class='glyphicon glyphicon-edit'></a></td>";
         echo "</tr>";
@@ -94,9 +94,9 @@ while($row=mysqli_fetch_assoc($resp)){
         <tfoot>
             <tr>
                 <th>ID_ESTUDIANTE</th>
-                <th>CELULAR</th>
-                <th>CARRERA</th>
+                <th>IDCARRERA</th>
                 <th>IDPERSONA</th>
+                <th>ACTIVO</th>
                 <th>ELIMINAR</th>
                 <th>MODIFICAR</th>
                 

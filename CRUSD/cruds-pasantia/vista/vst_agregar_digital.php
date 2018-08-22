@@ -10,10 +10,10 @@
 </head>
 <body>
 <div class="container">
-	<h1>DOCUMENTO DIGITAL</h1>
+	<h1>Doc Digital</h1>
 	<form name="f1" method="post" action="../enrutador/enr_digital.php" class="form-group">
-		<label for="idDigital">idDigital:</label>
-		<input type="text" name="idDigital" value="" class="form-control">
+		<label for="idDigital"></label>
+		<input type="hidden" name="idDigital" value="" class="form-control">
 
 		<label for="horaRecepcion">hora_Recepcion:</label>
 		<input type="time" name="horaRecepcion" value=""  class="form-control">
@@ -28,13 +28,11 @@
 		<input type="file" name="subirDoc" value="" class="form-control">
 
 		<label for="idCarrera">idCarrera:</label>
+		
 		<select name="idCarrera" class="form-control">
           <option value="0">seleccionar</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          
-0          <?php
+        
+          <?php
                require("../modelo/mdl_carrera.php");
                $obj1=new mdl_carrera();
                $resp1=$obj1->listar();
@@ -46,26 +44,15 @@
               }
               ?>
          </select>
+
 		<label for="idEstudiante">idEstudiante:</label>
-		<select name="idEstudiante" class="form-control">
-          <option value="0">seleccionar</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-         </select>
+	  <input type="number" name="idEstudiante" value="" class="form-control">
 
 		<label for="idTipoDoc">idTipoDoc:</label>
-		
-		  <select name="idTipoDoc" class="form-control">
-          <option value="0">seleccionar</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-         </select>
+		<input type="number" name="idTipoDoc" value="" class="form-control">
 
 
-
-		<input type="submit" name="btn" value="Agregar digital" class="btn btn-primary ">
+		<input type="submit" name="btn" value="Agregar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

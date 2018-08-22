@@ -25,18 +25,18 @@ $observacion = $row["observacion"];
 ?>
 
 <div class="container">
-	<h1>documento cuaderno</h1>
+	<h1>Cuaderno</h1>
 	<form name="f1" method="post" action="../enrutador/enr_cuaderno.php" class="form-group">
-		<label for="idCuaderno">idCuaderno:</label>
-		<input type="number" name="idCuaderno" value="<?php echo $idCuaderno;  ?>" class="form-control">
+		<label for="idCuaderno"></label>
+		<input type="hidden" name="idCuaderno" value="<?php echo $idCuaderno;  ?>" class="form-control">
 
-		<label for="fecha">fecha:</label>
+		<label for="fecha">Fecha:</label>
 		<input type="date" name="fecha" value="<?php echo $fecha;  ?>"  class="form-control">
 
 		<label for="observacion">observacion:</label>
 		<input type="text" name="observacion" value="<?php echo $observacion;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar cuaderno" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

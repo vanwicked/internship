@@ -37,8 +37,8 @@
 </head>
 <body background="../img/144.jpg">
 <?php
-    require("../controlador/ctrl_revisionvisita.php");
-    $obj=new ctrl_revisionvisita();
+    require("../controlador/ctrl_rol.php");
+    $obj=new ctrl_rol();
     $resp=$obj->listar();
     //print_r($resp);
     // convertir el resultado en vectores php
@@ -47,23 +47,22 @@
 
 
 <div class="container">
-<h1>Lista de Revision Visita</h1>
+<h1>Lista de Rol</h1>
 
 
 <br>
-<span>AGREGAR<a href="vst_agregar_revisionvisita.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
+<span>AGREGAR <a href="vst_agregar_rol.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
 <br><br><br>
 
 <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
         <thead>
             <tr>
-                <th>idVisita</th>
-                <th>fecha</th>
-                <th>FotoVisita</th>
-                <th>idempleado</th>
+                <th>idRol</th>
+                <th>nombre</th>
+                <th>activo</th>
                 <th>Eliminar</th>
                 <th>Modificar</th>
-                </tr>
+            </tr>
         </thead>
         <tbody>
 
@@ -75,15 +74,14 @@ while($row=mysqli_fetch_assoc($resp)){
 
         // crear variables y vaciar los datos del vector a cada variable
 
-        $idVisita=$row["idVisita"];
+        $idRol=$row["idRol"];
       
         echo "<tr>";
-        echo "<td>".$row["idVisita"]."</td>";
-        echo "<td>".$row["fecha"]."</td>";
-        echo "<td>".$row["fotoVisita"]."</td>";
-        echo "<td>".$row["idEmpleado"]."</td>";
-        echo "<td> <a href='../enrutador/enr_revisionvisita.php?idVisita=".$idVisita."' class='glyphicon glyphicon-trash'></a></td>";
-        echo "<td><a href='vst_mod_revisionvisita.php?idVisita=".$idVisita."' class='glyphicon glyphicon-edit'></a></td>";
+        echo "<td>".$row["idRol"]."</td>";
+        echo "<td>".$row["nombre"]."</td>";
+        echo "<td>".$row["activo"]."</td>";
+        echo "<td> <a href='../enrutador/enr_rol.php?idRol=".$idRol."' class='glyphicon glyphicon-trash'></a></td>";
+        echo "<td><a href='vst_mod_rol.php?idRol=".$idRol."' class='glyphicon glyphicon-edit'></a></td>";
         echo "</tr>";
 
 
@@ -93,10 +91,10 @@ while($row=mysqli_fetch_assoc($resp)){
         </tbody>
         <tfoot>
             <tr>
-                <th>ID_VISITA</th>
-                <th>FECHA</th>
-                <th>FOTOVISITA</th>
-                <th>IDEMPLEADO</th>
+                <th>ID_ROL</th>
+                <th>NOMBRE</th>
+                <th>ACTIVO</th>
+                <th>ELIMINAR</th>
                 <th>MODIFICAR</th>
                 
             </tr>
@@ -108,6 +106,3 @@ while($row=mysqli_fetch_assoc($resp)){
 
 </body>
 </html>
-
-
-

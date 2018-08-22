@@ -28,10 +28,10 @@ $idNumVisita = $row["idNumVisita"];
 ?>
 
 <div class="container">
-	<h1>documento revision</h1>
+	<h1>Revision</h1>
 	<form name="f1" method="post" action="../enrutador/enr_revision.php" class="form-group">
-		<label for="idRevision">idRevision:</label>
-		<input type="number" name="idRevision" value="<?php echo $idRevision;  ?>" class="form-control">
+		<label for="idRevision"></label>
+		<input type="hidden" name="idRevision" value="<?php echo $idRevision;  ?>" class="form-control">
 
 		<label for="descripcion">descripcion:</label>
 		<input type="date" name="descripcion" value="<?php echo $descripcion;  ?>"  class="form-control">
@@ -48,7 +48,7 @@ $idNumVisita = $row["idNumVisita"];
 		<label for="idNumVisita">idNumVisita:</label>
 		<input type="number" name="idNumVisita" value="<?php echo $idNumVisita;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar revision-visita" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

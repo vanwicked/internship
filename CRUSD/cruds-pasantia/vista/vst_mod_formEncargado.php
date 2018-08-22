@@ -30,10 +30,10 @@ $facOrgTrabajo = $row["facOrgTrabajo"];
 ?>
 
 <div class="container">
-	<h1>documento form-encargado</h1>
+	<h1>form-Encargado</h1>
 	<form name="f1" method="post" action="../enrutador/enr_formEncargado.php" class="form-group">
-		<label for="idFormEncargado">idFormEncargado:</label>
-		<input type="number" name="idFormEncargado" value="<?php echo $idFormEncargado;  ?>" class="form-control">
+		<label for="idFormEncargado"></label>
+		<input type="hidden" name="idFormEncargado" value="<?php echo $idFormEncargado;  ?>" class="form-control">
 
 		<label for="idEncargado">idEncargado:</label>
 		<input type="number" name="idEncargado" value="<?php echo $idEncargado;  ?>"  class="form-control">
@@ -53,7 +53,7 @@ $facOrgTrabajo = $row["facOrgTrabajo"];
 		<label for="facOrgTrabajo">facOrgTrabajo:</label>
 		<input type="number" name="facOrgTrabajo" value="<?php echo $facOrgTrabajo;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar form-encargado" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

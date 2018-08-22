@@ -19,9 +19,8 @@ public function insertar($p)
 	/*print_r($p);
 	echo $p["horaRecepcion"]."-------";*/
 	$this->objeto_modelo->set("idEmpleado",$p["idEmpleado"]);
-	$this->objeto_modelo->set("cargo",$p["cargo"]);
-	$this->objeto_modelo->set("sueldo",$p["sueldo"]);
 	$this->objeto_modelo->set("idPersona",$p["idPersona"]);
+	$this->objeto_modelo->set("activo",$p["activo"]);
 	
 
 	$this->objeto_modelo->insertar();
@@ -50,9 +49,8 @@ public function listar_dato($dato)
 public function modificar($p)
 {
 	$this->objeto_modelo->set("idEmpleado",$p["idEmpleado"]);
-	$this->objeto_modelo->set("cargo",$p["cargo"]);
-	$this->objeto_modelo->set("sueldo",$p["sueldo"]);
 	$this->objeto_modelo->set("idPersona",$p["idPersona"]);
+	$this->objeto_modelo->set("activo",$p["activo"]);
 
 	$this->objeto_modelo->modificar();
 }

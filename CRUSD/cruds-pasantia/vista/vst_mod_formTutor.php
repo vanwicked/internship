@@ -28,10 +28,10 @@ $idEstudiante = $row["idEstudiante"];
 ?>
 
 <div class="container">
-	<h1>documento form-tutor</h1>
+	<h1>Form-Tutor</h1>
 	<form name="f1" method="post" action="../enrutador/enr_formTutor.php" class="form-group">
-		<label for="idFormTutor">idFormTutor:</label>
-		<input type="number" name="idFormTutor" value="<?php echo $idFormTutor;  ?>" class="form-control">
+		<label for="idFormTutor"></label>
+		<input type="hidden" name="idFormTutor" value="<?php echo $idFormTutor;  ?>" class="form-control">
 
 		<label for="nota">nota:</label>
 		<input type="number" name="nota" value="<?php echo $nota;  ?>"  class="form-control">
@@ -48,7 +48,7 @@ $idEstudiante = $row["idEstudiante"];
 		<label for="idEstudiante">idEstudiante:</label>
 		<input type="number" name="idEstudiante" value="<?php echo $idEstudiante;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar form-tutor" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

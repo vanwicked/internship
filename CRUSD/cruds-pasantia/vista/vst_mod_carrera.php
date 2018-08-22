@@ -25,27 +25,18 @@ $idModalidad = $row["idModalidad"];
 ?>
 
 <div class="container">
-	<h1>documento carrera</h1>
+	<h1>Carrera</h1>
 	<form name="f1" method="post" action="../enrutador/enr_carrera.php" class="form-group">
-		<label for="idCarrera">idCarrera:</label>
-		<input type="number" name="idCarrera" value="<?php echo $idCarrera;  ?>" class="form-control">
+		<label for="idCarrera"></label>
+		<input type="hidden" name="idCarrera" value="<?php echo $idCarrera;  ?>"  class="form-control">
 
-		<label for="nombre">nombre:</label>
+		<label for="nombre">Nombre:</label>
 		<input type="text" name="nombre" value="<?php echo $nombre;  ?>"  class="form-control">
 
 		<label for="idModalidad">idModalidad:</label>
+		<input type="number" name="idModalidad" value="<?php echo $idModalidad;  ?>"  class="form-control">
 		
-
-		<select name="idModalidad" class="form-control" value="<?php echo $idModalidad;  ?>" >
-          <option value="0">seleccionar</option>
-          <option value="1">anual</option>
-          <option value="2">semestralizado</option>
-        
-
-         
-         </select>
-
-		<input type="submit" name="modificar" value="modificar carrera" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

@@ -26,10 +26,10 @@ $idPersona = $row["idPersona"];
 ?>
 
 <div class="container">
-	<h1>documento registro</h1>
+	<h1>Registro</h1>
 	<form name="f1" method="post" action="../enrutador/enr_registro.php" class="form-group">
-		<label for="idRegistro">idRegistro:</label>
-		<input type="number" name="idRegistro" value="<?php echo $idRegistro;  ?>" class="form-control">
+		<label for="idRegistro"></label>
+		<input type="hidden" name="idRegistro" value="<?php echo $idRegistro;  ?>" class="form-control">
 
 		<label for="cargo">cargo:</label>
 		<input type="text" name="cargo" value="<?php echo $cargo;  ?>"  class="form-control">
@@ -40,7 +40,7 @@ $idPersona = $row["idPersona"];
 		<label for="idPersona">idPersona:</label>
 		<input type="number" name="idPersona" value="<?php echo $idPersona;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar registro" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

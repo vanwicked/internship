@@ -49,7 +49,7 @@ public function listar_dato($dato)
 
 public function modificar($p)
 {
-		$this->objeto_modelo->set("idTipoFormulario",$p["idTipoFormulario"]);
+	$this->objeto_modelo->set("idTipoFormulario",$p["idTipoFormulario"]);
 	$this->objeto_modelo->set("descripcion",$p["descripcion"]);
 	$this->objeto_modelo->set("idFomEncargado",$p["idFomEncargado"]);
 	$this->objeto_modelo->set("idFormTutor",$p["idFormTutor"]);

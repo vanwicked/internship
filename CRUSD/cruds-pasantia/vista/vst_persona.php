@@ -47,11 +47,11 @@
 
 
 <div class="container">
-<h1>Lista de persona</h1>
+<h1>Lista de Persona</h1>
 
 
 <br>
-<span>agregar persona <a href="vst_agregar_persona.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
+<span>AGREGAR <a href="vst_agregar_persona.php" target="_blank" class="glyphicon glyphicon-plus"></a></span>
 <br><br><br>
 
 <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
@@ -62,7 +62,11 @@
                 <th>nombre</th>
                 <th>primerAp</th>
                 <th>segundoAp</th>
+                <th>telefono</th>
                 <th>direccion</th>
+                <th>email</th>
+                <th>activo</th>
+                <th>idRol</th>
                 <th>Eliminar</th>
                 <th>Modificar</th>
                 </tr>
@@ -85,7 +89,11 @@ while($row=mysqli_fetch_assoc($resp)){
         echo "<td>".$row["nombre"]."</td>";
         echo "<td>".$row["primerAp"]."</td>";
         echo "<td>".$row["segundoAp"]."</td>";
+        echo "<td>".$row["telefono"]."</td>";
         echo "<td>".$row["direccion"]."</td>";
+        echo "<td>".$row["email"]."</td>";
+        echo "<td>".$row["activo"]."</td>";
+        echo "<td>".$row["idRol"]."</td>";
         echo "<td> <a href='../enrutador/enr_persona.php?idPersona=".$idPersona."' class='glyphicon glyphicon-trash'></a></td>";
         echo "<td><a href='vst_mod_persona.php?idPersona=".$idPersona."' class='glyphicon glyphicon-edit'></a></td>";
         echo "</tr>";
@@ -103,7 +111,11 @@ while($row=mysqli_fetch_assoc($resp)){
                 <th>NOMBRE</th>
                 <th>PRIMERAP</th>
                 <th>SEGUNDOAP</th>
+                <th>TELEFONO</th>
                 <th>DIRECCION</th>
+                <th>EMAIL</th>
+                <th>ACTIVO</th>
+                 <th>IDROL</th>
                 <th>ELIMINAR</th>
                 <th>MODIFICAR</th>
                 

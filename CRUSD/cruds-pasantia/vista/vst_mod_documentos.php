@@ -28,13 +28,13 @@ $idRegistro = $row["idRegistro"];
 ?>
 
 <div class="container">
-	<h1>documento documentos</h1>
+	<h1>Documentos</h1>
 	<form name="f1" method="post" action="../enrutador/enr_documentos.php" class="form-group">
-		<label for="idDocumentos">idDocumentos:</label>
-		<input type="number" name="idDocumentos" value="<?php echo $idDocumentos;  ?>" class="form-control">
+		<label for="idDocumentos"></label>
+		<input type="hidden" name="idDocumentos" value="<?php echo $idDocumentos;  ?>" class="form-control">
 
 		<label for="fechaEntrega">fechaEntrega:</label>
-		<input type="date" name="fechaEntrega" value="<?php echo $fechaEntrega;  ?>"  class="form-control">
+		<input type="date"  name="fechaEntrega" value="<?php echo $fechaEntrega;  ?>"  class="form-control">
 
 		<label for="hora">hora:</label>
 		<input type="text" name="hora" value="<?php echo $hora;  ?>"  class="form-control">
@@ -48,7 +48,7 @@ $idRegistro = $row["idRegistro"];
 		<label for="idRegistro">idRegistro:</label>
 		<input type="text" name="idRegistro" value="<?php echo $idRegistro;  ?>"  class="form-control">
 
-		<input type="submit" name="modificar" value="modificar documentos" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar " class="btn btn-primary ">
 	</form>
 </div>
 </body>

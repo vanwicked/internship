@@ -10,28 +10,32 @@
 </head>
 <body background="../img/144.jpg">
 <?php
-require("../controlador/ctrl_modalidad.php");
+require("../controlador/ctrl_rol.php");
 
-$idModalidad=$_GET["idModalidad"] ;
+$idRol=$_GET["idRol"] ;
 
-$obj= new ctrl_modalidad();
+$obj= new ctrl_rol();
 
-$res=$obj->listar_dato($idModalidad);
+$res=$obj->listar_dato($idRol);
 
 $row=mysqli_fetch_array($res);
 $nombre = $row["nombre"];
+$activo = $row["activo"];
 
 ?>
 
 <div class="container">
-	<h1>Modalidad</h1>
-	<form name="f1" method="post" action="../enrutador/enr_modalidad.php" class="form-group">
-		<label for="idModalidad"></label>
-		<input type="hidden" name="idModalidad" value="<?php echo $idModalidad;  ?>" class="form-control">
+	<h1>Rol</h1>
+	<form name="f1" method="post" action="../enrutador/enr_carrera.php" class="form-group">
+		<label for="idRol"></label>
+		<input type="hidden" name="idRol" value="<?php echo $idRol;  ?>"  class="form-control">
 
-		<label for="nombre">nombre:</label>
+		<label for="nombre">Nombre:</label>
 		<input type="text" name="nombre" value="<?php echo $nombre;  ?>"  class="form-control">
 
+		<label for="activo">activo:</label>
+		<input type="number" name="activo" value="<?php echo $activo;  ?>"  class="form-control">
+		
 		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>

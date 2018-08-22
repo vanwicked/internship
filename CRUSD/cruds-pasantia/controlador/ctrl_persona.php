@@ -23,7 +23,11 @@ public function insertar($p)
 	$this->objeto_modelo->set("nombre",$p["nombre"]);
 	$this->objeto_modelo->set("primerAp",$p["primerAp"]);
 	$this->objeto_modelo->set("segundoAp",$p["segundoAp"]);
+	$this->objeto_modelo->set("telefono",$p["telefono"]);
 	$this->objeto_modelo->set("direccion",$p["direccion"]);
+	$this->objeto_modelo->set("email",$p["email"]);
+	$this->objeto_modelo->set("activo",$p["activo"]);
+	$this->objeto_modelo->set("idRol",$p["idRol"]);
 	
 
 	$this->objeto_modelo->insertar();
@@ -51,12 +55,16 @@ public function listar_dato($dato)
 
 public function modificar($p)
 {
-	$this->objeto_modelo->set("idPersona",$p["idPersona"]);
+$this->objeto_modelo->set("idPersona",$p["idPersona"]);
 	$this->objeto_modelo->set("dni",$p["dni"]);
 	$this->objeto_modelo->set("nombre",$p["nombre"]);
 	$this->objeto_modelo->set("primerAp",$p["primerAp"]);
 	$this->objeto_modelo->set("segundoAp",$p["segundoAp"]);
+	$this->objeto_modelo->set("telefono",$p["telefono"]);
 	$this->objeto_modelo->set("direccion",$p["direccion"]);
+	$this->objeto_modelo->set("email",$p["email"]);
+	$this->objeto_modelo->set("activo",$p["activo"]);
+	$this->objeto_modelo->set("idRol",$p["idRol"]);
 
 	$this->objeto_modelo->modificar();
 }

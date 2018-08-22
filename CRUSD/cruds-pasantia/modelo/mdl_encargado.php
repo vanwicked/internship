@@ -4,20 +4,20 @@ require("conexion.php");
 class mdl_encargado
 {
 	public $idEncargado;
-	public $telefono;
-	public $cargo;
 	public $idPersona;
 	public $idInstitucion;
+	public $telefono;
+	public $cargo;
 	public $conec;
 
 
 	function __construct()
 	{
 	$this->idEncargado=0;
-	$this->telefono=0;
-	$this->cargo="";
 	$this->idPersona=0;
 	$this->idInstitucion=0;
+	$this->telefono=0;
+	$this->cargo="";
 	$this->conec=new conexion();
 	}
 
@@ -28,9 +28,9 @@ class mdl_encargado
 	public function insertar()
 	{
 		
-		$sql="insert into encargado (idEncargado, telefono, cargo, idPersona, idInstitucion)
-		values('$this->idEncargado',
-		'$this->telefono','$this->cargo', '$this->idPersona', '$this->idInstitucion')";
+		$sql="insert into encargado (idEncargado, idPersona, idInstitucion, telefono, cargo)
+		values('$this->idEncargado', '$this->idPersona', '$this->idInstitucion',
+		'$this->telefono','$this->cargo')";
 		$this->conec->sin_retorno($sql);
 	}
 
@@ -56,7 +56,7 @@ class mdl_encargado
 
 	public function modificar()
 	{
-		 $sql="UPDATE encargado SET telefono='$this->telefono' , cargo='$this->cargo', idPersona='$this->idPersona', idInstitucion='$this->idInstitucion' where idEncargado='$this->idEncargado'  ";
+		 $sql="UPDATE encargado SET idPersona='$this->idPersona', idInstitucion='$this->idInstitucion', telefono='$this->telefono' , cargo='$this->cargo' where idEncargado='$this->idEncargado'  ";
 		 $this->conec->sin_retorno($sql);
 		  ?>
 		<script type="text/javascript">

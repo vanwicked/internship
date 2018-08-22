@@ -8,7 +8,11 @@ class mdl_persona
 	public $nombre;
 	public $primerAp;
 	public $segundoAp;
+	public $telefono;
 	public $direccion;
+	public $email;
+	public $activo;
+	public $idRol;
 	public $conec;
 
 
@@ -19,7 +23,11 @@ class mdl_persona
 	$this->nombre="";
 	$this->primerAp="";
 	$this->segundoAp="";
+	$this->telefono=0;
 	$this->direccion="";
+	$this->email="";
+	$this->activo=0;
+	$this->idRol=0;
 	$this->conec=new conexion();
 	}
 
@@ -30,9 +38,9 @@ class mdl_persona
 	public function insertar()
 	{
 		
-		$sql="insert into persona (idPersona, dni, nombre, primerAp, segundoAp, direccion)
+		$sql="insert into persona (idPersona, dni, nombre, primerAp, segundoAp, telefono, direccion, email, activo, idRol)
 		values('$this->idPersona',
-		'$this->dni', '$this->nombre', '$this->primerAp', '$this->segundoAp', '$this->direccion')";
+		'$this->dni', '$this->nombre', '$this->primerAp', '$this->segundoAp', '$this->telefono', '$this->direccion','$this->email','$this->activo', '$this->idRol')";
 		$this->conec->sin_retorno($sql);
 	}
 
@@ -58,7 +66,7 @@ class mdl_persona
 
 	public function modificar()
 	{
-		 $sql="UPDATE persona SET dni='$this->dni' , nombre='$this->nombre', primerAp='$this->primerAp', segundoAp='$this->segundoAp', direccion='$this->direccion'  where idPersona='$this->idPersona'  ";
+		 $sql="UPDATE persona SET dni='$this->dni' , nombre='$this->nombre', primerAp='$this->primerAp', segundoAp='$this->segundoAp', telefono='$this->telefono', direccion='$this->direccion', email='$this->email', activo='$this->activo', idRol='$this->idRol'  where idPersona='$this->idPersona'  ";
 		 $this->conec->sin_retorno($sql);
 		  ?>
 		<script type="text/javascript">

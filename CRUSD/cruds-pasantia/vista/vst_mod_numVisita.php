@@ -30,9 +30,14 @@ $numVisita = $row["numVisita"];
 		<input type="number" name="idNumVisita" value="<?php echo $idNumVisita;  ?>" class="form-control">
 
 		<label for="numVisita">numVisita:</label>
-		<input type="number" name="numVisita" value="<?php echo $numVisita;  ?>"  class="form-control">
+		<select name="numVisita" class="form-control">
+          <option value="0">seleccionar</option>
+          <option value="1">Primera visita</option>
+          <option value="2">Segunda visita</option>
+          <option value="3">Tercera visita</option>
+         </select>
 
-		<input type="submit" name="modificar" value="modificar form-tutor" class="btn btn-primary ">
+		<input type="submit" name="modificar" value="modificar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

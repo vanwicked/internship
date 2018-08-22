@@ -44,9 +44,9 @@
 
 
 <div class="container">
-<h1>Lista pasantia</h1>
+<h1>Lista Pasantia</h1>
 <br>
-<span>Agregar pasantia<a href="vst_pasantia.html" target="_blank" class="glyphicon glyphicon-plus"></a>
+<span>AGREGAR<a href="vst_agregar_pasantia.php" target="_blank" class="glyphicon glyphicon-plus"></a>
 </span> 
 <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
         <thead>

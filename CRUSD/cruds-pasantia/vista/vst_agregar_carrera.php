@@ -11,12 +11,12 @@
 <body>
       
 <div class="container">
-	<h1> CARRERA</h1>
+	<h1> Carrera</h1>
 	<form name="f1" method="post" action="../enrutador/enr_carrera.php" class="form-group">
-		<label for="idCarrera">id_Carrera:</label>
-		<input type="number" name="idCarrera" value="" class="form-control">
+		<label for="idCarrera"></label>
+		<input type="hidden" name="idCarrera" value="" class="form-control">
 
-		<label for="nombre">nombre:</label>
+		<label for="nombre">Nombre:</label>
 		<input type="text" name="nombre" value=""  class="form-control">
 
 		<label for="idModalidad">idModalidad:</label>
@@ -38,7 +38,7 @@
 
 <br>
 
-		<input type="submit" name="btn" value="Agregar carrera" class="btn btn-primary ">
+		<input type="submit" name="btn" value="Agregar" class="btn btn-primary ">
 	</form>
 </div>
 </body>

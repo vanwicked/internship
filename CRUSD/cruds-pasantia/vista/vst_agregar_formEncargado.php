@@ -11,13 +11,27 @@
 <body>
       
 <div class="container">
-	<h1> FORM-ENCARGADO</h1>
+	<h1> Form-Encargado</h1>
 	<form name="f1" method="post" action="../enrutador/enr_formEncargado.php" class="form-group">
-		<label for="idFormEncargado">idFormEncargado:</label>
-		<input type="number" name="idFormEncargado" value="" class="form-control">
+		<label for="idFormEncargado"></label>
+		<input type="hidden" name="idFormEncargado" value="" class="form-control">
 
 		<label for="idEncargado">idEncargado:</label>
-		<input type="number" name="idEncargado" value=""  class="form-control">
+		<select name="idEncargado" class="form-control">
+          <option value="0">seleccionar</option>
+        
+          <?php
+               require("../modelo/mdl_encargado.php");
+               $obj1=new mdl_encargado();
+               $resp1=$obj1->listar();
+               print_r($resp1);
+               while($row1=mysqli_fetch_assoc($resp1)){
+                $cod1=$row1["idEncargado"];
+                $rol1=$row1["cargo"];
+                echo "<option value='".$cod1."'>".$rol1."<option>";
+              }
+              ?>
+         </select>
 
 		<label for="rubro">rubro:</label>
 		<input type="text" name="rubro" value=""  class="form-control">
@@ -35,7 +49,7 @@
 		<input type="number" name="facOrgTrabajo" value=""  class="form-control">
 
 
-		<input type="submit" name="btn" value="Agregar Formulario de Encargado" class="btn btn-primary ">
+		<input type="submit" name="btn" value="Agregar" class="btn btn-primary ">
 	</form>
 </div>
 </body>
